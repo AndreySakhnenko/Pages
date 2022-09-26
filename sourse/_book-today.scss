@@ -1,0 +1,74 @@
+@use "./mixin/color" as *;
+@use "./mixin/mixin" as *;
+.book-today {
+  background-color: $dark-blue;
+  padding: 70px 0;
+  &__container {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 180px;
+    @media screen and (max-width: 1050px) {
+      grid-template-columns: repeat(1, 1fr);
+      gap: 0;
+    }
+  }
+  &__content {
+    padding: 72px 0 60px;
+    @media screen and (max-width: 1050px) {
+      text-align: center;
+      order: 1;
+      padding: 30px 0 0;
+    }
+  }
+  &__title {
+    font-family: "Cardo";
+    font-weight: 400;
+    font-size: 45px;
+    line-height: 54px;
+    text-transform: capitalize;
+    color: $white;
+    margin-bottom: 27px;
+    &::after {
+      content: "";
+      display: block;
+      width: 50px;
+      height: 3px;
+      background: $orang;
+      margin-top: 24px;
+      @media screen and (max-width: 1050px) {
+        margin: 24px auto 0;
+      }
+    }
+  }
+  &__text {
+    max-width: 539px;
+    width: 100%;
+    @include font-title;
+    line-height: 28px;
+    color: #b4c7e7;
+    margin-bottom: 27px;
+    @media screen and (max-width: 1050px) {
+      margin: 27px auto;
+    }
+  }
+  &__btn {
+    color: $white;
+    background-color: $dark-blue;
+    &:hover {
+      color: $dark-blue;
+      background-color: $orang;
+    }
+  }
+  &__img {
+    max-width: 560px;
+    min-height: 394px;
+    @media screen and (max-width: 1050px) {
+      margin: 0 auto;
+    }
+    & > img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+  }
+}

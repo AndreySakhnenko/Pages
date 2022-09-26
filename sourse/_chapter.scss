@@ -1,0 +1,119 @@
+@use "./mixin/color" as *;
+@use "./mixin/mixin" as *;
+.chapter {
+  background-color: $gray;
+  padding: 116px 0 130px;
+  @media screen and (max-width: 1050px) {
+    padding: 50px 0;
+  }
+  &_container {
+  }
+  &_title {
+    text-align: center;
+    &::after {
+      margin: 23px auto 0;
+    }
+  }
+  &_content {
+    padding: 70px 0 77px;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 40px 30px;
+    @media screen and (max-width: 776px) {
+      grid-template-columns: repeat(1, 1fr);
+      gap: 20px;
+      padding: 30px;
+    }
+    &__block {
+      background: $white;
+      padding: 44px 59px 40px 40px;
+    }
+    &__title {
+      @include font-title;
+      line-height: 29px;
+      color: $dark-blue;
+      margin-bottom: 21px;
+    }
+    &__text {
+      @include font-title;
+      line-height: 32px;
+      color: $hex-gray;
+      margin-bottom: 10px;
+    }
+    &__list {
+      display: flex;
+      gap: 55px;
+      @media screen and (max-width: 530px) {
+        flex-direction: column;
+        gap: 15px;
+      }
+    }
+    &__item {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      & > span {
+        font-family: "Inter";
+        font-weight: 400;
+        font-size: 17px;
+        line-height: 27px;
+        color: $hex-gray;
+      }
+    }
+    &__link {
+      font-family: "Cardo";
+      font-weight: 400;
+      font-size: 22px;
+      line-height: 31px;
+      color: $dark-blue;
+      &::before {
+        content: "";
+        width: 16px;
+        height: 16px;
+        border-radius: 50%;
+        background: $orang;
+        display: inline-block;
+        margin-right: 10px;
+      }
+    }
+  }
+  &_description {
+    text-align: center;
+    &__btn {
+      font-family: "Cardo";
+      font-weight: 400;
+      font-size: 19px;
+      line-height: 28px;
+      text-align: center;
+      letter-spacing: 0.57px;
+      text-transform: capitalize;
+      color: $dark-blue;
+      background: $orang;
+      border: 2px solid $orang;
+      padding: 22px 99px 22px;
+      transition: all 0.7s ease-in-out;
+      cursor: pointer;
+      margin-bottom: 34px;
+      &:hover {
+        color: $orang;
+        background: $dark-blue;
+      }
+    }
+    &__text {
+      font-family: "Inter";
+      font-weight: 400;
+      font-size: 18px;
+      line-height: 28px;
+      color: $hex-gray;
+    }
+    &__link {
+      font-family: "Inter";
+      font-weight: 400;
+      font-size: 18px;
+      line-height: 28px;
+      text-align: center;
+      letter-spacing: 0.19px;
+      color: $dark-blue;
+    }
+  }
+}

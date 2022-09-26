@@ -1,0 +1,89 @@
+@use "./mixin/color" as *;
+@use "./mixin/mixin" as *;
+.learn {
+  padding: 136px 0 140px;
+
+  @media screen and (max-width: 1050px) {
+    padding: 50px 0;
+  }
+  &_container {
+  }
+  &_title {
+    text-align: center;
+    margin-bottom: 90px;
+    &::after {
+      margin: 23px auto 0;
+    }
+  }
+  &_blocks {
+    display: flex;
+    justify-content: space-between;
+    @media screen and (max-width: 1050px) {
+      flex-direction: column-reverse;
+      gap: 30px;
+      align-items: center;
+    }
+  }
+  &_content {
+    max-width: 636px;
+    width: 100%;
+    padding-bottom: 70px;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    grid-template-rows: repeat(2, 1fr);
+    gap: 27px;
+    @media screen and (max-width: 475px) {
+      grid-template-columns: repeat(1, 1fr);
+      grid-template-rows: repeat(4, 1fr);
+    }
+    &__block {
+      padding: 61px 44px 0 30px;
+      background-color: $gray;
+      &-number {
+        width: 50px;
+        height: 50px;
+        display: flex;
+        border-radius: 50%;
+        background: $orang;
+        align-items: center;
+        justify-content: center;
+        margin-bottom: 30px;
+        & > span {
+          font-family: "Cardo";
+          font-style: normal;
+          font-weight: 400;
+          font-size: 23px;
+          line-height: 29px;
+          color: $dark-blue;
+        }
+      }
+      &-text {
+        max-width: 229px;
+        width: 100%;
+        @include font-title;
+        line-height: 34px;
+        color: $dark-blue;
+      }
+    }
+  }
+  &_img {
+    max-width: 555px;
+    width: 100%;
+    min-height: 652px;
+    box-sizing: border-box;
+    border: 10px solid $orang;
+    position: relative;
+    @media screen and (max-width: 500px) {
+      min-height: 450px;
+    }
+    @media screen and (max-width: 370px) {
+      min-height: 400px;
+    }
+    & > img {
+      position: absolute;
+      display: block;
+      left: -30px;
+      top: -30px;
+    }
+  }
+}

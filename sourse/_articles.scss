@@ -1,0 +1,105 @@
+@use "./mixin/color" as *;
+@use "./mixin/mixin" as *;
+.articles {
+  background-color: $gray;
+  padding: 126px 0 131px;
+  @media screen and (max-width: 976px) {
+    padding: 50px 0;
+  }
+  &_title {
+    text-align: center;
+    &::after {
+      margin: 23px auto 50px;
+    }
+  }
+  &_slide {
+    max-width: 420px;
+    width: 100%;
+    height: 622px;
+    display: flex;
+    flex-direction: column;
+    &__img {
+      min-height: 350px;
+      & > img {
+        max-width: 100%;
+      }
+    }
+    &__content {
+      min-height: 272px;
+      background-color: white;
+      padding: 25px 30px 28px;
+    }
+    &__title {
+      @include font-title;
+      line-height: 34px;
+      letter-spacing: 0.24px;
+      color: $dark-blue;
+      margin-bottom: 19px;
+      max-width: 325px;
+      width: 100%;
+    }
+    &__text {
+      @include font-title;
+      line-height: 30px;
+      color: $hex-gray;
+      margin-bottom: 11px;
+      max-width: 358px;
+      width: 100%;
+    }
+    &__list {
+    }
+    &__item {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      &-data {
+        font-family: "Inter";
+        font-weight: 400;
+        font-size: 16px;
+        line-height: 26px;
+        color: $dark-blue;
+      }
+    }
+    &__link {
+      max-width: 94px;
+      width: 100%;
+      font-family: "Cardo";
+      font-weight: 400;
+      font-size: 19px;
+      line-height: 30px;
+      letter-spacing: 0.38px;
+      text-transform: capitalize;
+      color: $dark-blue;
+      border-bottom: 2px solid $dark-blue;
+    }
+  }
+}
+.swiper {
+  max-width: 1320px;
+  width: 100%;
+  height: 662px;
+  padding-top: 20px;
+}
+.swiper-button-prev {
+  left: 0;
+}
+.swiper-button-next {
+  right: 0;
+}
+.swiper-button-prev,
+.swiper-button-next {
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  background: $orang;
+  text-align: center;
+  align-items: center;
+  top: 48%;
+  @media screen and (max-width: 967px) {
+    display: none;
+  }
+  &::after {
+    font-size: 29px;
+    color: $dark-blue;
+  }
+}

@@ -1,0 +1,10 @@
+@mixin font-text {
+  font-family: "Inter";
+  font-weight: 400;
+  font-size: 19px;
+}
+@mixin font-title {
+  font-family: "Cardo";
+  font-weight: 400;
+  font-size: 24px;
+}

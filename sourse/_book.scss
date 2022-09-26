@@ -1,0 +1,109 @@
+@use "./mixin/color" as *;
+@use "./mixin/mixin" as *;
+.books {
+  padding-top: 127px;
+  padding-bottom: 117px;
+  @media screen and (max-width: 999px) {
+    padding: 50px 0;
+  }
+  &_container {
+    & > h2 {
+      text-align: center;
+    }
+  }
+  &_title {
+    &::after {
+      margin: 23px auto;
+    }
+  }
+  &_content {
+    padding: 40px 5px;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 7px;
+    @media screen and (max-width: 999px) {
+      padding: 0;
+      align-items: center;
+      grid-template-columns: repeat(1, 1fr);
+      grid-template-rows: repeat(2, 1fr);
+    }
+  }
+}
+.book {
+  display: grid;
+  gap: 5px;
+  grid-template-columns: repeat(2, 1fr);
+  @media screen and (max-width: 510px) {
+    grid-template-columns: repeat(1, 1fr);
+    text-align: center;
+  }
+  &_img {
+    max-width: 285px;
+    max-height: 382px;
+    @media screen and (max-width: 999px) {
+      margin: 0 auto;
+    }
+    & > img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+  }
+  &_content {
+    padding: 46px 28px 10px 0;
+    @media screen and (max-width: 999px) {
+      padding: 0;
+    }
+
+    &__title {
+      font-family: "Cardo";
+      font-weight: 400;
+      font-size: 32px;
+      line-height: 38px;
+      letter-spacing: 0.32px;
+      color: $dark-blue;
+      margin-bottom: 7px;
+    }
+    &__price {
+      font-family: "Inter";
+      font-weight: 400;
+      font-size: 21px;
+      line-height: 33px;
+      color: $orang;
+      margin-bottom: 17px;
+      display: inline-block;
+    }
+    &__text {
+      @include font-title;
+      line-height: 28px;
+      color: $hex-gray;
+      margin-bottom: 13px;
+    }
+    &__subtext {
+      display: inline-block;
+      @include font-title;
+      line-height: 29px;
+      color: $dark-blue;
+      margin-bottom: 27px;
+      @media screen and (max-width: 999px) {
+        display: block;
+      }
+      &::before {
+        content: "";
+        width: 16px;
+        height: 16px;
+        border-radius: 50%;
+        background: $orang;
+        display: inline-block;
+        margin-right: 10px;
+      }
+    }
+    &__btn {
+      background: $white;
+      color: $dark-blue;
+      &:hover {
+        background: $orang;
+      }
+    }
+  }
+}

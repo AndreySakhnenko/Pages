@@ -1,0 +1,63 @@
+@use "./mixin/color" as *;
+@use "./mixin/mixin" as *;
+
+@use "header" as *;
+@use "hero" as *;
+@use "book" as *;
+@use "about" as *;
+@use "trusted" as *;
+@use "book-today" as *;
+@use "learn" as *;
+@use "chapter" as *;
+@use "readers" as *;
+@use "articles" as *;
+@use "subscription" as *;
+@use "footer" as *;
+@import "nullstyle.scss";
+* {
+  box-sizing: border-box;
+}
+html {
+  scroll-behavior: smooth;
+}
+body {
+  background-color: $white;
+  font-family: "Cardo", sans-serif;
+  font-family: "Inter", sans-serif;
+}
+img {
+  max-width: 100%;
+}
+.container {
+  max-width: 1330px;
+  width: 100%;
+  margin: 0 auto;
+  padding: 0 15px;
+}
+.subtitle {
+  font-family: "Cardo";
+  font-weight: 400;
+  font-size: 42px;
+  line-height: 50px;
+  text-transform: capitalize;
+  color: $dark-blue;
+  &::after {
+    content: "";
+    display: block;
+    width: 50px;
+    height: 3px;
+    background: $orang;
+    margin-top: 23px;
+  }
+}
+.btn {
+  font-family: "Cardo";
+  font-weight: 400;
+  font-size: 19px;
+  line-height: 28px;
+  padding: 17px 52px;
+  letter-spacing: 0.38px;
+  border: 2px solid $orang;
+  transition: all 0.5s linear;
+  cursor: pointer;
+}

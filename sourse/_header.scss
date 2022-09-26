@@ -1,0 +1,234 @@
+@use "./mixin/color" as *;
+@use "./mixin/mixin" as *;
+.header {
+  display: flex;
+  position: fixed;
+  width: 100%;
+  top: 0;
+  justify-content: space-between;
+  left: 0;
+  padding: 20px 0;
+  background-color: $dark-blue;
+  &_container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    min-height: 69px;
+    @media screen and (max-width: 999px) {
+      gap: 0;
+      justify-content: space-between;
+    }
+  }
+  &_left {
+    display: flex;
+    gap: 38px;
+    align-items: center;
+    padding: 12px 30px 12px 0;
+  }
+  &_right {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+  }
+  &_logo {
+    &__link {
+      display: inline-block;
+      & > img {
+        max-width: 119px;
+        width: 100%;
+        height: 35px;
+        object-fit: cover;
+      }
+    }
+  }
+  &_nav {
+    display: flex;
+    gap: 15px;
+    align-items: center;
+    &__btn {
+      display: flex;
+      align-items: center;
+      gap: 51px;
+    }
+  }
+  &_list {
+    display: flex;
+    justify-content: space-between;
+    padding: 23px 17px 20px;
+    &_icons {
+      display: flex;
+      gap: 10px;
+    }
+  }
+  &_item {
+    &__icons {
+      background: $white;
+      border: 2px solid $white;
+      border-radius: 0px;
+      padding: 13px 14px;
+    }
+    &__right {
+      &:nth-child(1) {
+        padding-right: 23px;
+      }
+      &:nth-child(2) {
+        padding-left: 23px;
+        padding-right: 24px;
+      }
+      &:nth-child(3) {
+        padding-left: 24px;
+        padding-right: 30px;
+      }
+      &:nth-child(4) {
+        padding-left: 30px;
+        padding-right: 23px;
+      }
+    }
+  }
+  &_link {
+    display: inline-block;
+    &__icons {
+      & > svg {
+        width: 13px;
+        height: 13px;
+        object-fit: cover;
+        fill: #141414;
+        transition: all 0.5s ease-in-out;
+        &:hover {
+          fill: $orang;
+        }
+      }
+    }
+    &__icon {
+      & > svg {
+        width: 17px;
+        height: 17px;
+        transition: all 0.5s ease-in-out;
+        &:hover {
+          fill: $orang;
+        }
+      }
+    }
+    &__right {
+      font-family: "Inter";
+      font-weight: 400;
+      font-size: 17px;
+      line-height: 26px;
+      letter-spacing: 0.17px;
+      color: $hex-white;
+      transition: all 0.7s ease-in;
+      &:hover {
+        color: $orang;
+      }
+    }
+  }
+  &_btn {
+    background: $orang;
+    border: 2px solid $orang;
+    border-radius: 0px;
+    color: $dark-blue;
+    letter-spacing: 0.57px;
+    transition: all 0.5s linear;
+    &:hover {
+      color: $dark-blue;
+      background: #f5f5f5;
+    }
+  }
+}
+.burger {
+  display: none;
+  height: 40px;
+  width: 40px;
+  flex-direction: column;
+  z-index: 3;
+  position: relative;
+
+  .bar {
+    display: block;
+    width: 30px;
+    height: 2px;
+    margin: 5px auto;
+    background-color: $orang;
+    transition: transform 0.2s ease-in;
+  }
+
+  &.active .bar:nth-child(1) {
+    transform: translateY(14px) rotate(45deg);
+  }
+
+  &.active .bar:nth-child(2) {
+    opacity: 0;
+  }
+
+  &.active .bar:nth-child(3) {
+    transform: translateY(-11px) rotate(-45deg);
+  }
+}
+@media screen and (max-width: 1135px) {
+  .header_nav {
+    display: flex;
+    position: fixed;
+    top: 0;
+    right: -100%;
+    height: 100%;
+    max-width: 500px;
+    width: 100%;
+    background: rgba(#181511, 1);
+    z-index: 2;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    transition: right 0.2s ease-in-out;
+    gap: 35px;
+    &.active {
+      right: 0;
+    }
+  }
+  .header_list {
+    flex-direction: column;
+    align-items: center;
+    color: #626262;
+    padding: 15px 0;
+    gap: 60px;
+  }
+  .header_item__right {
+    &:nth-child(1) {
+      padding: 0;
+    }
+    &:nth-child(2) {
+      padding: 0;
+    }
+    &:nth-child(3) {
+      padding: 0;
+    }
+    &:nth-child(4) {
+      padding: 0;
+    }
+  }
+  .header_link__right {
+    font-size: 40px;
+  }
+  .header_nav__btn {
+    flex-direction: column;
+    gap: 35px;
+  }
+  .header_link__icon {
+    & > svg {
+      width: 30px;
+      height: 30px;
+      fill: white;
+    }
+  }
+  .burger {
+    display: flex;
+    cursor: pointer;
+    margin-left: auto;
+  }
+}
+@media screen and (max-width: 475px) {
+  .header_list {
+    max-width: 100%;
+    opacity: 0.9;
+    width: 100%;
+  }
+}
